@@ -3,11 +3,11 @@ CXXFLAGS = -I./lib -std=c++11
 
 # Определяем целевые файлы
 TARGET = main
-# TEST_TARGET = test_solution
+TEST_TARGET = test_solution
 
 # Объектные файлы
 OBJS = bin/main.o lib/bor.o
-# TEST_OBJS = tests/test_solution.o lib/solution.o
+TEST_OBJS = tests/test_solution.o lib/bor.o
 
 # Основная цель
 all: $(TARGET)
@@ -27,8 +27,8 @@ bin/main.o: bin/main.cpp lib/bor.h
 lib/bor.o: lib/bor.cpp lib/bor.h
 	$(CXX) $(CXXFLAGS) -c lib/bor.cpp -o lib/bor.o
 
-# tests/test_solution.o: tests/test_solution.cpp lib/solution.h
-# 	$(CXX) $(CXXFLAGS) -c tests/test_solution.cpp -o tests/test_solution.o
+tests/test_solution.o: tests/test_solution.cpp lib/bor.h
+	$(CXX) $(CXXFLAGS) -c tests/test_solution.cpp -o tests/test_solution.o
 
 # Очистка объектных файлов и исполняемых файлов
 clean:
