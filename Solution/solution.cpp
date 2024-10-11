@@ -59,7 +59,7 @@ class Bor {
         return res_to_add;
     }
 
-    std::string addWord(std::string& str) {
+    std::string addWord(const std::string& str) {
         help_ += str;
         try {
             pointer = goDownOnWord(str, false, pointer);
@@ -93,9 +93,9 @@ class Bor {
         return prev_node;
     }
 
-    std::string help(std::string& str) {
+    std::string help(const std::string& str) {
         clean();
-        help_ = std::move(str);
+        help_ = str;
         
         try {
             pointer = goDownOnWord(help_, false);
@@ -125,19 +125,6 @@ class Bor {
         }
     }
 };
-
-namespace tests {
-    void testing_solution() {
-        {
-            Bor bor;
-            
-            for (int i = 0; i < 10; ++i) {
-                bor.writeWord("ten");
-            }
-
-        }
-    }
-}
 
 void solution(std::istream& in, std::ostream& out) {
     Bor bor;
