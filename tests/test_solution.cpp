@@ -46,7 +46,7 @@ void testingSolution() {
         };
 
         makeTest(bor, to_write, requests);
-
+        std::cout << "All tests passed!";
     }
 }
 
